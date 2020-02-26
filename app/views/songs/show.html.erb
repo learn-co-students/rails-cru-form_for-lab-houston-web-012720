@@ -1,0 +1,31 @@
+<h1>My <%=@instance.class.name%></h1>
+
+
+
+<label>Name: <%=@instance.name%> </label>
+<br>
+
+
+
+
+<ul>
+<br>
+<%= form_for(@instance, url: edit_song_path(@instance), method: :get) do |f| %>
+<%= f.submit "Edit #{@instance.class.name}"%>
+<% end %>
+<br>
+<%= form_for(@instance, url: song_path(@instance), method: :delete) do |f| %>
+<%= f.submit "Delete #{@instance.class.name}"%>
+<% end %>
+<br>
+<%= form_for(@instance, url: songs_path, method: :get) do |f| %>
+<%= f.submit "Return to #{@instance.class.name.pluralize(2)}"%>
+<% end %>
+<br>
+<%= form_for(@instance, url: new_song_path, method: :get) do |f| %>
+<%= f.submit "Create New #{@instance.class.name}"%>
+<% end %>
+<br>
+
+  <%= link_to  @instance.artist.name, artist_path(@instance.artist) %>
+  <%= link_to  @instance.genre.name, genre_path(@instance.genre) %>
