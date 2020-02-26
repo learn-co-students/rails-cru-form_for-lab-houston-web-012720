@@ -1,0 +1,9 @@
+<h1> My <%=@instances.sample.class.name%></h1>
+<br>
+<%= form_for(@instances.sample, url: new_genre_path, method: :get) do |f| %>
+<%= f.submit "Create New #{@instances.sample.class.name}"%>
+<% end %>
+<br>
+<%@instances.each { |instance|%>
+<%= link_to  instance.name, genre_path(instance) %>
+<%}%>

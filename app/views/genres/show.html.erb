@@ -1,0 +1,40 @@
+<h1>My <%=@instance.class.name%></h1>
+
+
+
+<label>Name: <%=@instance.name%> </label>
+<br>
+
+
+<ul>
+<br>
+<%= form_for(@instance, url: edit_genre_path(@instance), method: :get) do |f| %>
+<%= f.submit "Edit #{@instance.class.name}"%>
+<% end %>
+<br>
+<%= form_for(@instance, url: genre_path(@instance), method: :delete) do |f| %>
+<%= f.submit "Delete #{@instance.class.name}"%>
+<% end %>
+<br>
+<%= form_for(@instance, url: genres_path, method: :get) do |f| %>
+<%= f.submit "Return to #{@instance.class.name.pluralize(2)}"%>
+<% end %>
+<br>
+
+<label>Artists:</label>
+<br>
+<%@instance.artists.uniq.each { |artist|%>
+  <li>
+  <label><%=artist.name%></label>
+  </li>
+<%}%>
+</ul>
+<br>
+<label>Songs:</label>
+<ul>
+<%@instance.songs.each { |song|%>
+  <li>
+  <label><%=song.name%></label>
+  </li>
+<%}%>
+</ul>

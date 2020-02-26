@@ -1,0 +1,10 @@
+<h1> My <%=@instances.sample.class.name%></h1>
+<br>
+<%= form_for(@instances.sample, url: new_song_path, method: :get) do |f| %>
+<%= f.submit "Create New #{@instances.sample.class.name}"%>
+<% end %>
+<br>
+<%@instances.each { |instance|%>
+
+<p><%= link_to  instance.name, song_path(instance) %></p>
+<%}%>
