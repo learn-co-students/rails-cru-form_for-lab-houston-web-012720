@@ -1,0 +1,10 @@
+<h1>Genres list</h1>
+<div>
+<% @genres.each do |genre| %> 
+    <%= link_to genre.name, genre_path(genre) %>
+<% end %> 
+</div>
+<br>
+<%= button_to "Add new genre", new_genre_path, method: :get %> 
+<br>
+<%= button_to "Artists page", artists_path, method: :get %> 
